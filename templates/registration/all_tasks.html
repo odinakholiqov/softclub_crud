@@ -18,8 +18,7 @@
       </tr>
     </thead>
     <tbody>
-    
-    {% if user.is_authenticated %}
+
     {% for task in all_tasks %}
         <tr>
             <th scope="row">{{task.id}}</th>
@@ -34,9 +33,6 @@
             <td>{{task.is_done}}</td>
           </tr>
     {% endfor %}
-    {% else %}
-          <h1>Good Bye!</h1>
-    {% endif %}
     </tbody>
 </table>
 
