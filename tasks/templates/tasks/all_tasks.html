@@ -1,0 +1,40 @@
+{% extends "tasks/base.html" %}
+
+{% block content %}
+
+
+<h1>All tasks</h1>
+
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Task</th>
+        <th scope="col">Due date</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Created date</th>
+        <th scope="col">Owner</th>
+        <th scope="col">Is completed</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for task in all_tasks %}
+        <tr>
+            <th scope="row">{{task.id}}</th>
+            <td><a href="{% url 'task_detail' task.pk %}">
+                    {{task.title}}
+                </a>
+            </td>
+            <td>{{task.due_date}}</td>
+            <td>{{task.priority}}</td>
+            <td>{{task.created_at}}</td>
+            <td>{{task.owner}}</td>
+            <td>{{task.is_done}}</td>
+          </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock content %}
